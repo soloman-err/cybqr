@@ -120,7 +120,17 @@
             if (isValidHttpUrl(decodedText)) {
                 // If it's a URL, redirect to the URL
                 console.log('Scan successful, redirecting to:', decodedText);
+
+                document.getElementById('barcodeText').textContent = "Scan successful!";
+                showModal();
+
                 window.location.href = decodedText;
+
+                // After 2 seconds, redirect to the URL
+                setTimeout(function () {
+                    console.log('Redirecting to:', decodedText);
+                    window.location.href = decodedText;
+                }, 1000);
             } else {
                 // If it's not a URL, display the text
                 console.log('Scan successful, displaying text:', decodedText);
