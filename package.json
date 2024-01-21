@@ -1,0 +1,22 @@
+{
+  "name": "cybqr",
+  "version": "1.0.0",
+  "description": "cybeqr pos sytem",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soloman-err/cybqr.git"
+  },
+  "author": "solo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/soloman-err/cybqr/issues"
+  },
+  "homepage": "https://github.com/soloman-err/cybqr#readme",
+  "dependencies": {
+    "html5-qrcode": "^2.3.8"
+  }
+}
