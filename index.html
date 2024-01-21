@@ -52,6 +52,7 @@
             overflow: auto;
             background-color: rgba(0, 0, 0, 0.4);
             padding-top: 60px;
+            border-radius: 5px;
         }
 
         .modal-content {
@@ -85,8 +86,9 @@
     <!-- The Modal -->
     <div id="barcodeModal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <p id="barcodeText">Some text in the Modal..</p>
+            <h2>Scan Result</h2>
+            <p id="barcodeText">Waiting for scan...</p>
+            <button class="close-button">Close</button>
         </div>
     </div>
 
@@ -100,9 +102,10 @@
             } else {
                 // If it's not a URL, display the text
                 console.log('Scan successful, displaying text:', decodedText);
-                // Display the text in the 'result' div or handle as needed
-                document.getElementById('result').textContent = 'Scanned Text: ' + decodedText;
-                showModal();
+                // Display the text in the 'barcodeText' element in the modal
+                document.getElementById('barcodeText').textContent = decodedText;
+                // Show the modal
+                document.getElementById('barcodeModal').style.display = 'block';
             }
         }
 
