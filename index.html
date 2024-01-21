@@ -48,24 +48,32 @@
 
     <script>
         function onScanSuccess(decodedText, decodedResult) {
-            // Check if the scanned text is a valid URL
-            try {
-                new URL(decodedText);
-            } catch (_) {
-                alert('Scan successful, but the scanned text is not a valid URL: ' + decodedText);
-                return;
+            // Check if the scanned text is a URL
+            if (isValidHttpUrl(decodedText)) {
+                // If it's a URL, redirect to the URL
+                console.log('Scan successful, redirecting to:', decodedText);
+                window.location.href = decodedText;
+            } else {
+                // If it's not a URL, display the text
+                console.log('Scan successful, displaying text:', decodedText);
+                // Display the text in the 'result' div or handle as needed
+                document.getElementById('result').textContent = 'Scanned Text: ' + decodedText;
+                // Optionally, implement further logic here
             }
-
-            // Show a success message
-            alert('Scan successful! You will now be redirected.');
-
-            // Redirect to the scanned result page
-            window.location.href = decodedText;
         }
 
         function onScanFailure(error) {
-            // Ignoring the failed scans
             console.warn(`Scan failure: ${error}`);
+        }
+
+        function isValidHttpUrl(string) {
+            let url;
+            try {
+                url = new URL(string);
+            } catch (_) {
+                return false;
+            }
+            return url.protocol === "http:" || url.protocol === "https:";
         }
 
         function startScanning() {
@@ -74,7 +82,6 @@
             html5QrcodeScanner.render(onScanSuccess, onScanFailure);
         }
 
-        // Start scanning after the DOM is loaded
         document.addEventListener('DOMContentLoaded', startScanning);
     </script>
 </body>
