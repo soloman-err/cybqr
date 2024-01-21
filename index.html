@@ -48,12 +48,18 @@
 
     <script>
         function onScanSuccess(decodedText, decodedResult) {
-            // Displaying the scanned text
-            // document.getElementById('result').textContent = 'Scanned Result: ' + decodedText;
+            // Check if the scanned text is a valid URL
+            try {
+                new URL(decodedText);
+            } catch (_) {
+                alert('Scan successful, but the scanned text is not a valid URL: ' + decodedText);
+                return;
+            }
 
             // Show a success message
             alert('Scan successful! You will now be redirected.');
 
+            // Redirect to the scanned result page
             window.location.href = decodedText;
         }
 
