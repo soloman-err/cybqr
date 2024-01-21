@@ -32,7 +32,9 @@
     <script>
         function onScanSuccess(decodedText, decodedResult) {
             // Displaying the scanned text
-            document.getElementById('result').textContent = 'Scanned Result: ' + decodedText;
+            // document.getElementById('result').textContent = 'Scanned Result: ' + decodedText;
+
+            window.location.href = decodedText;
         }
 
         function onScanFailure(error) {
