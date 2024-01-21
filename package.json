@@ -1,0 +1,14 @@
+{
+  "name": "cybqr",
+  "version": "1.0.0",
+  "description": "cybqr scanner",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "author": "solo",
+  "license": "ISC",
+  "devDependencies": {
+    "html5-qrcode": "^2.3.8"
+  }
+}
